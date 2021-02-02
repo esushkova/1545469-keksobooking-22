@@ -1,14 +1,22 @@
 // Возвращает случайное целое число из переданного диапазона включительно
-// Источник: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
+function getRandomInteger(min, max) {
+  if (max <= min, max <= 0, min < 0) {
+    throw Error('Введите другой диапазон')
+  }
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+getRandomInteger(-1, 3);
+
 // Возвращает случайное число с плавающей точкой из переданного диапазона включительно
 
-function getRandomInclusive(min, max) {
-  return Math.random() * (max - min + 1) + min;
+function getRandomFloatNumber(min, max, fixed) {
+  if (max <= min, max <= 0, min < 0) {
+    throw Error('Введите другой диапазон')
+  }
+  const number = (Math.random() * (max - min + 1) + min);
+  return parseFloat(number.toFixed(fixed));
 }
+
+getRandomFloatNumber(0.1, 0.2, 4)
